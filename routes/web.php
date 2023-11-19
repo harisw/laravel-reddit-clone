@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PostController::class, 'index']);
+Route::match(['get', 'post'], 'register', [AuthController::class, 'register']);
+Route::match(['get', 'post'], 'login', [AuthController::class, 'login']);
+Route::match(['get'], 'logout', [AuthController::class, 'logout']);
+
+Route::resource('post', PostController::class);

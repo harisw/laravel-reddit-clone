@@ -1,0 +1,42 @@
+@extends('layout')
+@section('content')
+    <h3></h3>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Views
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th>
+                Headline
+            </th>
+            <th>
+                9999
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Headline 2
+            </th>
+            <th>
+                23
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Headline
+            </th>
+            <th>
+                77
+            </th>
+        </tr>
+        </tbody>
+    </table>
+@endsection
