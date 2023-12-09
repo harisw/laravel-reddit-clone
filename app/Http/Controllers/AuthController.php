@@ -54,6 +54,12 @@ class AuthController extends Controller
         ])->onlyInput('username');
     }
 
+    public function protectedRouteExample(): string
+    {
+
+        return 'Congrats! You have logged in!';
+    }
+
     public function logout(Request $request): RedirectResponse
     {
         Auth::logout();

@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PostController::class, 'index']);
 Route::match(['get', 'post'], 'register', [AuthController::class, 'register']);
-Route::match(['get', 'post'], 'login', [AuthController::class, 'login']);
+Route::match(['get', 'post'], 'login', [AuthController::class, 'login'])->name('login');
 Route::match(['get'], 'logout', [AuthController::class, 'logout']);
 
-Route::resource('post', PostController::class);
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('protected-route', [AuthController::class, 'protectedRouteExample']);
+});
